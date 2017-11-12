@@ -1,0 +1,32 @@
+~/bloc/bloc-demo> ls.
+config.yaml contracts css html  js    key.json  meta routes
+~bloc/bloc-demo> emacs contracts/PatientAppointment.sol
+contract PatientAppointment {
+    address Firm Alpha;
+    address Firm BloodLab;
+    address Firm Pharmacy;
+    address Firm Medicare;
+    mapping (address => unit) ownership;
+
+    function Init () {
+      Alpha = 0xaaaaaaaaa;
+      BloodLab = 0xbbbbbbbbb;
+      Pharmacy = 0xccccccccc;
+      Medicare = 0xddddddddd;
+
+      ownership[Alpha] = 15;
+      ownership[BloodLab] = 15;
+      ownership[Pharmacy] = 25;
+      ownership[Medicare] = 45
+    } 
+
+    function Dividend ( ){
+       unit bal = this.balance; 
+
+       Alpha.send(bal) * ownership[Alpha] / 100);
+       BloodLab.send(bal) * ownership[BloodLab] / 100);
+       Pharmacy.send(bal) * ownership[Pharmacy] / 100);
+       Medicare.send(bal) * ownership[Medicare] / 100);
+    }
+}
+~/bloc/bloc-demo> bloc compile -s
